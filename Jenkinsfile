@@ -5,15 +5,7 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-         stage('Clone repository') { 
-            steps { 
-                script{
-                checkout scm
-                }
-            }
-        }
-
-        stage('Build') { 
+         stage('Build') { 
             steps { 
                 script{
                  app = docker.build("octopus-underwater-app")
