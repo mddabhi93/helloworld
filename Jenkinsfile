@@ -1,37 +1,16 @@
-
+#!groovy
 pipeline {
-    agent any
-    options {
-        skipStagesAfterUnstable()
+	agent none
+  stages {
+  	stage('Maven Install') {
+    	agent {
+      	docker {
+        	image 'maven:3.5.0'
+        }
+      }
+      steps {
+      	sh 'mvn clean install'
+      }
     }
-    stages {
-         stage('Build') { 
-            steps { 
-                script{
-                 app = docker.build("octopus-underwater-app")
-                }
-            }
-        }
-        stage('Test'){
-            steps {
-                 echo 'Empty'
-            }
-        }
-        stage('Push') {
-            steps {
-                script{
-                        docker.withRegistry('https://720766170633.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:aws-credentials') {
-                    app.push("${env.BUILD_NUMBER}")
-                    app.push("latest")
-                    }
-                }
-            }
-        }
-        stage('Deploy'){
-            steps {
-                 sh 'kubectl apply -f deployment.yml'
-            }
-        }
-
-    }
+  }
 }
