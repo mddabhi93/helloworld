@@ -1,14 +1,12 @@
 pipeline {
-    agent any
-    environment {
-        COMPOSE_PROJECT_NAME = "${env.JOB_NAME}-${env.BUILD_ID}"
-    }
+    agent any 
     stages {
-         sh "docker-compose build"
-    }
-    post {
-        always {
-            sh "docker-compose down -v"
+        stage('Build Docker Image') {
+            steps {
+                echo 'Hello world'
+                sh "docker-compose build . -t mahesh/helloworld:latest"
+                echo 'Build Successfully'
+            }
         }
     }
 }
