@@ -4,7 +4,7 @@ pipeline {
         COMPOSE_PROJECT_NAME = "${env.JOB_NAME}-${env.BUILD_ID}"
     }
     stages {
-         docker-compose build
+         sh "docker-compose build"
     }
     post {
         always {
