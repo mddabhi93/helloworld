@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                sh ...
+                sh '''
                   docker compose version
                   docker-compose build
             }
