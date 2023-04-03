@@ -6,6 +6,7 @@ pipeline {
                 sh '''
                   docker compose version
                   docker-compose build
+                '''
             }
         }
     }
