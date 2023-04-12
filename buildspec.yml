@@ -2,7 +2,7 @@
 version: 0.2
 env:
   variables:
-    REPO_NAME: https://github.com/mddabhi93/helloworld
+    REPO_URL: https://github.com/mddabhi93/helloworld
 phases:
   install:
     runtime-versions:
