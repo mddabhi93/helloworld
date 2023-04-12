@@ -5,18 +5,18 @@ install:
 runtime-versions:
 python: 3.8
 commands:
-- pip install awscli boto3
+  - pip install awscli boto3
 pre_build:
 commands:
-- echo "Retrieving GitHub repository URL and token from DynamoDB"
-- &gt;
-REPO_AND_TOKEN=$(aws dynamodb get-item --table-name my-dynamodb-table
---key '{"id": {"S": "primary-key-value"}}'
---query 'Item.repo_url.S,Item.token.S' --output text)
-- REPO_URL=$(echo $REPO_AND_TOKEN | cut -d' ' -f1)
-- GITHUB_TOKEN=$(echo $REPO_AND_TOKEN | cut -d' ' -f2)
-- echo "Cloning GitHub repository"
-- git clone $REPO_URL
+  - echo "Retrieving GitHub repository URL and token from DynamoDB"
+  - &gt;
+  REPO_AND_TOKEN=$(aws dynamodb get-item --table-name my-dynamodb-table
+  --key '{"id": {"S": "primary-key-value"}}'
+  --query 'Item.repo_url.S,Item.token.S' --output text)
+  - REPO_URL=$(echo $REPO_AND_TOKEN | cut -d' ' -f1)
+  - GITHUB_TOKEN=$(echo $REPO_AND_TOKEN | cut -d' ' -f2)
+  - echo "Cloning GitHub repository"
+  - git clone $REPO_URL
 build:
 commands:
 - echo "Zipping the repository"
