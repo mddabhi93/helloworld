@@ -4,10 +4,9 @@ phases:
   install:
     runtime-versions:
       python: 3.8
-      commands:
-        - pip install awscli boto3
   pre_build:
     commands:
+      - pip install awscli boto3
       - echo "Retrieving GitHub repository URL and token from DynamoDB"
       - REPO_AND_TOKEN=$(aws dynamodb get-item --table-name my-dynamodb-table
         --key'{"id":{"S":"primary-key-value"}}'
