@@ -33,9 +33,9 @@ phases:
 artifacts:
   files:
     - $REPO_NAME.zip
-  install:
-    runtime-versions:
-      ruby: 2.6
+#  install:
+#    runtime-versions:
+#      ruby: 2.6
   sqs_build: 
     commands:
       - gem install bundler
