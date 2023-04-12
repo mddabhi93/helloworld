@@ -36,6 +36,7 @@ artifacts:
   install:
     runtime-versions:
       ruby: 2.6
+  sqs_build: 
     commands:
       - gem install bundler
       - bundle install
