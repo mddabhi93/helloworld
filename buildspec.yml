@@ -30,8 +30,6 @@ phases:
     commands:
       - echo "Uploading the zip to S3 bucket"
       - aws s3 cp $REPO_NAME.zip s3://my-s3-bucket-x/$REPO_NAME.zip
-  sqs_build: 
-    commands:
       - gem install bundler
       - bundle install
     finally:
