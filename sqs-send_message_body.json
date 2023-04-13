@@ -1,0 +1,10 @@
+{
+  "timestamp": {
+    "DataType": "Number.Epoch",
+    "StringValue": "insert-epoch"
+  },
+  "logpath": {
+    "DataType": "String",
+    "StringValue": "insert-logpath"
+  }
+}
