@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     REPO_URL: https://github.com/mddabhi93/helloworld
-    SQS_QUEUE: 'https://sqs.us-east-1.amazonaws.com/036192280692/my-sqs'
+    SQS_QUEUE: 'https://sqs.us-east-1.amazonaws.com/038157383258/my-sqs'
 phases:
   install:
     runtime-versions:
