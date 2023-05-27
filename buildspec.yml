@@ -32,11 +32,12 @@ phases:
       - aws s3 cp $REPO_NAME.zip s3://my-s3-bucket-x/$REPO_NAME.zip
       - gem install bundler
       - bundle install
-    finally:
-      - aws sqs send-message --queue-url $SQS_QUEUE --message-body "$(sed -e
-        's/insert-build-step/install/g' -e
-        s/insert-build-status/${CODEBUILD_BUILD_SUCCEEDING}/g
-        .build/sqs-send_message_body.json)" --message-attributes "$(sed -e
-        s/insert-epoch/${CODEBUILD_START_TIME}/g -e
-        s/insert-logpath/${CODEBUILD_LOG_PATH}/g
-        .build/sqs-send_message_attributes.json)"
+#    finally:
+#      - aws sqs send-message --queue-url $SQS_QUEUE --message-body "$(sed -e
+#        's/insert-build-step/install/g' -e
+
+#        s/insert-build-status/${CODEBUILD_BUILD_SUCCEEDING}/g
+#        .build/sqs-send_message_body.json)" --message-attributes "$(sed -e
+#        s/insert-epoch/${CODEBUILD_START_TIME}/g -e
+#        s/insert-logpath/${CODEBUILD_LOG_PATH}/g
+#        .build/sqs-send_message_attributes.json)"
