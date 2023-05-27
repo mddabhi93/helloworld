@@ -35,6 +35,7 @@ phases:
 #    finally:
 #      - aws sqs send-message --queue-url $SQS_QUEUE --message-body "$(sed -e
 #        's/insert-build-step/install/g' -e
+
 #        s/insert-build-status/${CODEBUILD_BUILD_SUCCEEDING}/g
 #        .build/sqs-send_message_body.json)" --message-attributes "$(sed -e
 #        s/insert-epoch/${CODEBUILD_START_TIME}/g -e
